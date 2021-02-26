@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    – name: Check out code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    # – name: Check out code
     – name: Create release branch
       run: git checkout -b release/v${{ github.event.inputs.versionName }}
     – name: Initialize mandatory git config
@@ -72,4 +72,3 @@ jobs:
               Hi!
               This PR was created in response workflow running.
               I've updated the version name and code commit: ${{ steps.make-commit.outputs.commit }}.
-              
