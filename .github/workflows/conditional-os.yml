@@ -27,6 +27,7 @@ jobs:
               poetry install  # --no-dev
               poetry add pyicu pycld2 polyglot
           elif [ "$RUNNER_OS" == "Windows" ]; then
+              pwd
               poetry install
               poetry add git+https://github.com/ffreemt/fast-langid.git
           else
