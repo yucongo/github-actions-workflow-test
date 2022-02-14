@@ -23,9 +23,12 @@ jobs:
       - name: Install
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
-              sudo apt-get install pipx
+              sudo apt-get install libicu-dev pkg-config
+              poetry install  # --no-dev
+              poetry add pyicu pycld2 polyglot
           elif [ "$RUNNER_OS" == "Windows" ]; then
-              pwd && dir whl/PyICU-2.8.1-cp38-cp38-win_amd64.whl && poetry install &&  poetry add git+https://github.com/aboSamoor/polyglot@master
+              poetry install
+              poetry add git+https://github.com/ffreemt/fast-langid.git
           else
               echo "$RUNNER_OS not supported"
               exit 1
