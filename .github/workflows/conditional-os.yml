@@ -13,14 +13,14 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - name:  Install
-        run:   |
-               if [ "$RUNNER_OS" == "Linux" ]; then
-                    echo apt install important_linux_software
-               elif [ "$RUNNER_OS" == "Windows" ]; then
-                    dir .github/workflows
-               else
-                    echo "$RUNNER_OS not supported"
-                    exit 1
-               fi
+      - name: Install
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+              echo apt install important_linux_software
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+              pwd && dir whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
+          else
+              echo "$RUNNER_OS not supported"
+              exit 1
+          fi
         shell: bash
