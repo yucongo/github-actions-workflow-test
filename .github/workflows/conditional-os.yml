@@ -18,7 +18,7 @@ jobs:
                if [ "$RUNNER_OS" == "Linux" ]; then
                     echo apt install important_linux_software
                elif [ "$RUNNER_OS" == "Windows" ]; then
-                    ver
+                    dir .github\workflows
                else
                     echo "$RUNNER_OS not supported"
                     exit 1
