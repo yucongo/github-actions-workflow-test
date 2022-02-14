@@ -13,12 +13,19 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
       - name: Install
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
-              echo apt install important_linux_software
+              apt install pipx
           elif [ "$RUNNER_OS" == "Windows" ]; then
-              pwd && dir whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
+              pwd && dir whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl && poetry run install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
           else
               echo "$RUNNER_OS not supported"
               exit 1
