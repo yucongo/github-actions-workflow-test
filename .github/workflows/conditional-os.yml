@@ -23,9 +23,9 @@ jobs:
       - name: Install
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
-              apt install pipx
+              sudo apt-get install pipx
           elif [ "$RUNNER_OS" == "Windows" ]; then
-              pwd && dir whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl && poetry run install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
+              pwd && dir whl/PyICU-2.8.1-cp38-cp38-win_amd64.whl && poetry run install whl/PyICU-2.8.1-cp38-cp38-win_amd64.whl
           else
               echo "$RUNNER_OS not supported"
               exit 1
