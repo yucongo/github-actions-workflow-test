@@ -28,9 +28,8 @@ jobs:
               poetry add pyicu pycld2 polyglot
           elif [ "$RUNNER_OS" == "Windows" ]; then
               poetry install
-              # poetry add git+https://github.com/ffreemt/fast-langid.git
-              poetry run pip install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
-              poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
+              poetry run pip install whl/PyICU-2.8.1-cp38-cp38-win_amd64.whl
+              poetry run pip install whl/pycld2-0.41-cp38-cp38-win_amd64.whl
               poetry add git+https://github.com/aboSamoor/polyglot@master
           else
               echo "$RUNNER_OS not supported"
