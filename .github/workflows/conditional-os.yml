@@ -10,7 +10,7 @@ jobs:
       matrix:
         python-version: [3.8]
         poetry-version: [1.1.2]
-        os: [windows-latest]
+        os: [ubunut-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name:  Install
